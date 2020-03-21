@@ -1,34 +1,20 @@
 # Plattform für Ideen und Projekte
 
-Die Tatsache, dass wir gerade einen massiven Hackathon erleben spricht Bände. Menschen sind bereit zu helfen. Es wäre wünschenswert, dass diese Anstrengungen nicht über viele verschiedene geschlossene Plattformen verteilt unternommen werden, sondern gebündelt auf einer freien Plattform, um dadurch die Grundlagen zu schaffen kommende Hackathons dieser Art zugänglicher zu gestalten und die Plattform zu einer langfristigen Lösungsschmiede auszubauen.
+Was wir an diesem Wochenende in einem massiven Hackathon erlebt haben spricht Bände - Menschen sind bereit zu helfen und nehmen Herausforderungen an. Wir möchten sicherstellen, dass dieses Momentum erhalten bleibt, die Diskussion, Kreativität und Kollaboration auch nach Sonntag, 18:00 Uhr weitergeht.
 
-- Devpost Team: https://devpost.com/software/offen/joins/D18HwkNk9SsoCIE8VOJ-cw
-- Slack Channel: #ideenplattform
+**Why & Problem**
+- Der Hackathon hat gezeigt, wie viel in kurzer Zeit möglich ist: 42k people, 800+ Projektideen
+- Es hat auch gezeigt, wo viel Energie verloren gehen kann, wenn zahlreiche Menschen diskutieren, sich organisieren und in Teams zusammenfinden - und wie langwierig und Admin-intensiv dieser Prozess sein kann
+- Während der unermüdliche Einsatz von Mentoren und Orga-Team den Prozess diesmal ermöglicht hat, möchten wir eine Lösung vorschlagen, wie dieses Austauschformat auch in Zukunft weiterbestehen und skaliert werden kann
 
-**Scope für die zwei Tage**
+**What / Solution**
 
-- Ideen anlegen
-- Voting für Ideen
-- Projekte für Ideen vorschlagen
-- Voting für Projekte
-- Diskussionsthreads zu Ideen und Projekten
-- Tags für Ideen und Projekte
+Eine offenen Plattform, als Grundlage für kommende Hackathons, mit dem Ziel sie zugänglicher zu gestalten und die Plattform zu einer langfristigen Lösungsschmiede auszubauen
 
-**Gesucht**
+- Ein Dashboard, auf dem Ideen eingereicht, gesammelt, diskutiert, gevoted, gefiltert und verfeinert werden können - sehr offen, sehr einfach teilzunehmen
+- Anleitung & Unterstützung, um Ideen zu einem konkreten Projektvorschlag zu entwickeln und zu konkretisieren 
+- Die Möglichkeit zu mobilisieren und sogar spontan größere Online-Hackathons zu organisieren, mit Schnittstellen zu Komms-Plattformen, Crowdfunding, Unterstützern, Industriepartnern und Experten
 
-- UX/UI Designer:in
-- Frontend-Entwickler:in, HTML, CSS, JS/TypeScript, React
-- Backend-Entwickler:in, Rust
-- Frontend und Backend, Idealerweise Vorerfahrung mit GraphQL
-- Expert:in im Umgang mit Ideen und Projekten auf einer konzeptionellen Ebene
-
-**Extended Scope**
-
-- Ideen und Projekte im Wikistil, so dass kollaborativ und iterativ daran gearbeitet werden kann
-- Foren basierend auf Tags
-- Repositories mit Git Backend
-- Chaträume mittels Matrix und/oder XMPP
-- Ideen und Projekte mittels Matrix und/oder ActivityPub föderieren
 
 ## Development
 
