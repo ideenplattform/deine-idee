@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "outDir": "build/web",
+    "strict": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["web/src/*"]
+    }
+  },
+  "include": ["web/**/*.ts", "web/**/*.tsx"]
+}

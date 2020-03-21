@@ -1,0 +1,15 @@
+[package]
+name = "server"
+version = "0.1.0"
+authors = ["Johannes Becker"]
+edition = "2018"
+
+[dependencies]
+anyhow = "1.0.27"
+env_logger = "0.7.1"
+futures = "0.3.4"
+juniper = { version = "0.14.2", git = "https://github.com/graphql-rust/juniper" }
+juniper_warp = { version = "0.5.2", git = "https://github.com/graphql-rust/juniper" }
+log = "0.4.8"
+tokio = { version = "0.2.13", features = ["macros", "fs"] }
+warp = "0.2.2"

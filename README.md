@@ -3,7 +3,7 @@
 Die Tatsache, dass wir gerade einen massiven Hackathon erleben spricht Bände. Menschen sind bereit zu helfen. Es wäre wünschenswert, dass diese Anstrengungen nicht über viele verschiedene geschlossene Plattformen verteilt unternommen werden, sondern gebündelt auf einer freien Plattform, um dadurch die Grundlagen zu schaffen kommende Hackathons dieser Art zugänglicher zu gestalten und die Plattform zu einer langfristigen Lösungsschmiede auszubauen.
 
 - Devpost Team: https://devpost.com/software/offen/joins/D18HwkNk9SsoCIE8VOJ-cw
-- Slack Channel: #ideenplattform 
+- Slack Channel: #ideenplattform
 
 **Scope für die zwei Tage**
 
@@ -12,7 +12,7 @@ Die Tatsache, dass wir gerade einen massiven Hackathon erleben spricht Bände. M
 - Projekte für Ideen vorschlagen
 - Voting für Projekte
 - Diskussionsthreads zu Ideen und Projekten
-- Tags für Ideen und Projekte 
+- Tags für Ideen und Projekte
 
 **Gesucht**
 
@@ -29,3 +29,25 @@ Die Tatsache, dass wir gerade einen massiven Hackathon erleben spricht Bände. M
 - Repositories mit Git Backend
 - Chaträume mittels Matrix und/oder XMPP
 - Ideen und Projekte mittels Matrix und/oder ActivityPub föderieren
+
+## Development
+
+### Requirements
+
+- Rust ([rustup.rs](https://rustup.rs/))
+- NodeJS ([nvm.sh](https://nvm.sh))
+
+### Install
+
+```
+npm install
+cargo install cargo-watch
+```
+
+### Watcher
+
+```
+npm run dev
+```
+
+Visit `http://localhost:3000`
