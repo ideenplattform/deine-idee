@@ -23,7 +23,7 @@ const App = (): JSX.Element => (
   <ApolloProvider client={client}>
     <div className="flex flex-col h-screen w-full bg-gray-300">
       <Nav />
-      <main className="relative h-full mx-4 my-5">
+      <main className="relative h-full">
         <IdeaList />
       </main>
     </div>

@@ -2,6 +2,9 @@ import React from "react";
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/react-hooks";
 
+import wirvsvirus from "../images/wirvsvirus3.png";
+import wirvsvirusLogo from "../images/wirvsvirus-logo.png";
+
 const IDEAS = gql`
   {
     ideas {
@@ -71,7 +74,9 @@ export function IdeaList(): JSX.Element {
           </div>
           <div>
             {labels!.map(label => (
-              <span className={`bg-${label.color} rounded-full px-3 py-1 m-1`}>
+              <span
+                className={`bg-${label.color} text-sm rounded-full px-3 py-1 m-1`}
+              >
                 {label.title}
               </span>
             ))}
@@ -81,30 +86,48 @@ export function IdeaList(): JSX.Element {
     )
   );
 
-  const categories = [
-    "Supermarkt Status",
-    "Krankenhäuser",
-    "Social Distancing",
-    "Lebensmittel-Matching",
-    "Analoge Unterstützung",
-    "Mental Health",
-    "Hilfsmittelverteilung",
-    "Kreativer Gesundheitsschutze",
-  ];
-
   const sidebar = (
-    <div className="flex flex-col rounded bg-white rounded border border-gray-400 p-1">
-      <div className="font-bold text-lg p-2">Kategorien</div>
-      {categories.map(category => (
-        <div className="px-2 py-1">{category}</div>
-      ))}
+    <div className="flex flex-col rounded bg-white rounded border border-gray-400 p-3">
+      <div className="font-bold text-lg">Zusammenfassung</div>
+      <div>Ideen 800</div>
+      <div>Teilnehmer 40t</div>
     </div>
   );
 
   return (
-    <div className="h-full flex justify-center">
-      <div className="w-640px">{ideas}</div>
-      <div className="w-312px ml-4">{sidebar}</div>
+    <div>
+      <div className="flex justify-center h-200px">
+        <img className="h-200px" src={wirvsvirus} />
+      </div>
+      <div className="flex justify-center bg-white">
+        <div className="flex flex-col w-976px bg-white">
+          <div className="flex mb-3">
+            <img className="h-20 rounded-full -mt-4" src={wirvsvirusLogo} />
+            <div>
+              <div className="font-bold text-2xl p-2">WirVsVirus</div>
+            </div>
+          </div>
+          <div className="flex">
+            <div className="font-bold text-gray-800 px-4 pt-2 pb-1 border-b-4 border-red-500">
+              Ideen
+            </div>
+            <div className="font-bold text-gray-700 px-4 pt-2 pb-1">
+              Projekte
+            </div>
+            <div className="font-bold text-gray-700 px-4 pt-2 pb-1">Wiki</div>
+            <div className="font-bold text-gray-700 px-4 pt-2 pb-1">
+              Einführung
+            </div>
+            <div className="font-bold text-gray-700 px-4 pt-2 pb-1">
+              Leichte Sprache
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="h-full flex justify-center mx-4 my-5">
+        <div className="w-640px">{ideas}</div>
+        <div className="w-312px ml-24px">{sidebar}</div>
+      </div>
     </div>
   );
 }
