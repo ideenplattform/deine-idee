@@ -103,7 +103,7 @@ export function IdeaDetail(props): JSX.Element {
           <div className="mb-3">
             <ReactMarkdown source={approach} renderers={renderers} />
           </div>
-          <div className="mb-3 mx-10">
+          <div className="mb-3 mx-10 pointer-events-none">
             <Range
               className="mb-10"
               marks={{
