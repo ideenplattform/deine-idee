@@ -31,7 +31,7 @@ const App = (): JSX.Element => (
         <Switch>
           <Route exact path="/" component={Dashboard} />
           <Route path="/idea/:id" component={IdeaDetail} />
-          <Route path="/wirvsvirus" component={IdeaList} />
+          <Route path="/page/:id" component={IdeaList} />
         </Switch>
       </main>
     </div>

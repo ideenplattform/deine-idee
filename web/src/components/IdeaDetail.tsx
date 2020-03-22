@@ -20,10 +20,66 @@ export function IdeaDetail(props): JSX.Element {
   // const { loading, error, data } = useQuery(IDEAS);
   // if (loading) return <p>Loading...</p>;
   // if (error) return <p>Error :(</p>;
-  const id = props.match.params.number;
+  const id = props.match.params.id;
 
-  const data = {
-    idea: {
+  const ideas = [
+    {
+      id: 1,
+      title: "Auslastungsmanagement",
+      issue: "Unvermeindliche Menschenansammlungen in Supermärkten.",
+      challenge:
+        "Wie kann man Supermärkte und andere öffentliche Orte bestmöglichst auslasten, sodass so wenig Menschen wie möglich sich begegnen (Stoßzeiten vermeiden).",
+      labels: [
+        {
+          title: "Kommunikation & Informationsvermittlung",
+          color: "blue-300",
+        },
+      ],
+      comments: [
+        {
+          name: "Johannes",
+          text:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas efficitur augue sit amet ex vulputate, in faucibus tellus commodo.",
+          comments: [
+            {
+              name: "Johannes",
+              text:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas efficitur augue sit amet ex vulputate, in faucibus tellus commodo. Praesent ornare, metus in pulvinar mollis, elit risus convallis nisi, eget pharetra nisi turpis euismod turpis..",
+              comments: [
+                {
+                  name: "Stefan",
+                  text:
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas efficitur augue sit amet ex vulputate, in faucibus tellus commodo. Praesent ornare, metus in pulvinar mollis, elit risus convallis nisi, eget pharetra nisi turpis euismod turpis. Cras vitae risus mauris. Vivamus ac quam felis.",
+                  comments: [],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: "Stefan",
+          text:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas efficitur augue sit amet ex vulputate, in faucibus tellus commodo.",
+          comments: [
+            {
+              name: "Stefan",
+              text:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas efficitur augue sit amet ex vulputate.",
+              comments: [
+                {
+                  name: "Stefan",
+                  text:
+                    "Lorem ipsum dolor sit amet.",
+                  comments: [],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 2,
       title: "Unterstützung von Personen die kein Internetzugriff haben",
       issue:
         "Es gibt bereits zahlreiche Webseiten, Chatgruppen(Whatsapp/Telegram) und App's, welche die Kommunikation zwischen Hilfesuchenden und Leuten die Hilfe anbieten erleichtert.\n\nz.B.:\n* Webseite: [quarantaenehelden.org](http://www.quarantaenehelden.org/)\n* Telegram Gruppe: https://t.me/CoronaSoliDarmstadt\n* Weite Gruppen: https://pad.systemli.org/p/9M9GOR5J4Zjnd74dXInr-keep\nWas ist aber mit Leuten die keinen Zugriff auf solche Medien hat z.B. die ältere Generation? Ein Vorschlag wäre eine Art Hotline einzurichten die autonom arbeitet.",
@@ -60,7 +116,9 @@ export function IdeaDetail(props): JSX.Element {
         },
       ],
     },
-  };
+  ];
+
+  const data = { idea: ideas.filter(i => i.id == id)[0] };
 
   const renderers = {
     list: (item: any): ReactElement => (
@@ -107,11 +165,11 @@ export function IdeaDetail(props): JSX.Element {
             <Range
               className="mb-10"
               marks={{
-                0: "Started",
-                25: "Reviewed",
-                50: "Ready",
-                75: "Start Project",
-                100: "Takeoff",
+                0: "Neu",
+                25: "In Arbeit",
+                50: "Wird geprüft",
+                75: "In Umsetzung",
+                100: "Veröffentlichung",
               }}
               defaultValue={[0, 50]}
             />

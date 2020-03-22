@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "main": "dist/index.js",
   "types": "dist",
+  "homepage": "https://s.bolli.tech/deineidee",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "lint": "run-p lint:*",

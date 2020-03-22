@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import gql from "graphql-tag";
 import wirvsvirusLogo from "../images/wirvsvirus-logo.png";
+import logo from "../icons/idea.svg";
 
 import { Link } from "react-router-dom";
 
@@ -63,6 +64,20 @@ export function Dashboard(): JSX.Element {
         ],
       },
     ],
+    cards: [
+      {
+        id: "wirvsvirus",
+        title: "#WirVsVirus",
+        text: "Hackathon gegen Coronavirus",
+        image: wirvsvirusLogo,
+      },
+      {
+        id: "deineidee",
+        title: "DeineIdee",
+        text: "Plattform für Ideen und Projekte",
+        image: logo,
+      },
+    ],
   };
 
   const renderers = {
@@ -81,7 +96,10 @@ export function Dashboard(): JSX.Element {
       <div>
         <div className="bg-white rounded p-4 border border-gray-400 mb-4">
           <div className="mb-2">
-            <Link to="/wirvsvirus">
+            <Link
+              to="/page/wirvsvirus"
+              className="flex justify-between items-center"
+            >
               <div className="py-2 flex items-center">
                 <img className="h-8 rounded-full" src={wirvsvirusLogo} />
                 <div className="font-bold px-2">#WirVsVirus</div>
@@ -163,11 +181,23 @@ export function Dashboard(): JSX.Element {
     </div>
   );
 
-  const cards = [1, 2, 3, 4].map(() => (
-    <Link to="/wirvsvirus" className="w-1/4 mx-6">
-      <div className="rounded-lg p-5 card text-white h-32 flex flex-col justify-end">
-        <div>#WirVsVirus</div>
-        <div className="text-xs font-light">Hackathon gegen Coronavirus</div>
+  const cards = [
+    data.cards[0],
+    data.cards[1],
+    data.cards[0],
+    data.cards[1],
+  ].map(({ image, title, text, id }) => (
+    <Link to={{ pathname: `/page/${id}` }} className="w-1/4 mx-6">
+      <div
+        className="rounded-lg p-5 text-white h-32 flex flex-col justify-end"
+        style={{
+          background:
+            "rgb(255, 255, 255) no-repeat scroll center center / cover",
+          backgroundImage: `linear-gradient(0deg,rgba(0,0,0,.8),rgba(0,0,0,.6) 25%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.2) 75%,rgba(0,0,0,.1)), url("${image}")`,
+        }}
+      >
+        <div>{title}</div>
+        <div className="text-xs font-light">{text}</div>
       </div>
     </Link>
   ));

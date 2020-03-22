@@ -2,6 +2,8 @@ import React, { ReactElement } from "react";
 import gql from "graphql-tag";
 import wirvsvirus from "../images/wirvsvirus3.png";
 import wirvsvirusLogo from "../images/wirvsvirus-logo.png";
+import logo from "../icons/idea.svg";
+
 import { useQuery } from "@apollo/react-hooks";
 
 import { Link } from "react-router-dom";
@@ -16,10 +18,38 @@ const IDEAS = gql`
   }
 `;
 
-export function IdeaList(): JSX.Element {
+export function IdeaList(props): JSX.Element {
   // const { loading, error, data } = useQuery(IDEAS);
   // if (loading) return <p>Loading...</p>;
   // if (error) return <p>Error :(</p>;
+  const id = props.match.params.id;
+
+  const pages = [
+    {
+      id: "wirvsvirus",
+      logo: wirvsvirusLogo,
+      background: wirvsvirus,
+      description:
+        "Wie können wir als Gesellschaft die Herausforderungen, die im Zuge der Corona Krise entstehen, mit neuen Lösungen gemeinsam meistern?",
+      stats: {
+        ideas: 800,
+        participants: "42t",
+      },
+    },
+    {
+      id: "deineidee",
+      logo: logo,
+      background: logo,
+      description:
+        "Die Open Source Plattform zum Ideenmanagement auf gesellschaftlicher Ebene. Die agile Lösungsschmiede für Kreative und Engagierte.",
+      stats: {
+        ideas: "∞",
+        participants: "7",
+      },
+    },
+  ];
+
+  const page = pages.filter(i => i.id == id)[0];
 
   const data = {
     ideas: [
@@ -112,18 +142,15 @@ export function IdeaList(): JSX.Element {
 
   const sidebar = (
     <div className="flex flex-col rounded bg-white rounded border border-gray-400 p-3">
-      <div className="font-bold mb-2">#WirVsVirus</div>
-      <div className="mb-5">
-        Wie können wir als Gesellschaft die Herausforderungen, die im Zuge der
-        Corona Krise entstehen, mit neuen Lösungen gemeinsam meistern?
-      </div>
+      <div className="font-bold mb-2">{page.title}</div>
+      <div className="mb-5">{page.description}</div>
       <div className="flex">
         <div className="flex flex-col w-1/3">
-          <div className="font-medium text-lg">800</div>
+          <div className="font-medium text-lg">{page.stats.ideas}</div>
           <div className="font-bold">Ideen</div>
         </div>
         <div className="flex flex-col">
-          <div className="font-medium text-lg">42t</div>
+          <div className="font-medium text-lg">{page.stats.participants}</div>
           <div className="font-bold">Teilnehmer</div>
         </div>
       </div>
@@ -133,14 +160,14 @@ export function IdeaList(): JSX.Element {
   return (
     <div>
       <div className="flex justify-center h-200px">
-        <img className="h-200px" src={wirvsvirus} />
+        <img className="h-200px" src={page.background} />
       </div>
       <div className="flex justify-center bg-white">
         <div className="flex flex-col w-976px bg-white">
           <div className="flex mb-3">
-            <img className="h-20 rounded-full -mt-4" src={wirvsvirusLogo} />
+            <img className="h-20 rounded-full -mt-4" src={page.logo} />
             <div>
-              <div className="font-bold text-2xl p-2">#WirVsVirus</div>
+              <div className="font-bold text-2xl p-2">{page.title}</div>
             </div>
           </div>
           <div className="flex">
