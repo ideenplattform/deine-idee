@@ -22,12 +22,17 @@ export function IdeaList(): JSX.Element {
         issue: "Unvermeindliche Menschenansammlungen in Supermärkten.",
         challenge:
           "Wie kann man Supermärkte und andere öffentliche Orte bestmöglichst auslasten, sodass so wenig Menschen wie möglich sich begegnen (Stoßzeiten vermeiden).",
-        labels: [],
+        labels: [
+          {
+            title: "Kommunikation & Informationsvermittlung",
+            color: "blue-300",
+          },
+        ],
       },
       {
         title: "Unterstützung von Personen die kein Internetzugriff haben",
         issue:
-          "Es gibt bereits zahlreiche Webseiten, Chatgruppen(Whatsapp/Telegram) und App's, welche die Kommunikation zwischen Hilfesuchenden und Leuten die Hilfe anbieten erleichtert.Z.B.:- Webseite: http://www.quarantaenehelden.org/- Telegram Gruppe: https://t.me/CoronaSoliDarmstadt- Weite Gruppen: https://pad.systemli.org/p/9M9GOR5J4Zjnd74dXInr-keepWas ist aber mit Leuten die keinen Zugriff auf solche Medien hat z.B. die ältere Generation?Ein Vorschlag wäre eine Art Hotline einzurichten die autonom arbeitet.Die Hotline nimmt den Anruf entgegen und die Person kann ihre Bedürfnisse einem Anrufbeantworter oder Bot mitteilen.Die Sprache zu Texterkennung ist heutzutage sehr fortgeschritten, Google bietet hier sogar einen Eigenen Service dazu an.Die Texterkennung kann dann direkt in die Webseiten oder App übertragen werden z.B. quarantaenehelden.org hier können sich dann Helfer direkt telefonisch bei der Hilfesuchenden Person melden.Der Bot könnte natürlich Zusätzlich auch noch Informationen über den Aktuellen Stand über Corona(COVID-19) weitergeben.Durch Sprachsynthese wäre es sogar möglich das ein Rückruf getätigt wird um ggf. Informationen weiterzuleiten.",
+          "Es gibt bereits zahlreiche Webseiten, Chatgruppen(Whatsapp/Telegram) und App's, welche die Kommunikation zwischen Hilfesuchenden und Leuten die Hilfe anbieten erleichtert.Z.B.:- Webseite: http://www.quarantaenehelden.org/- Telegram Gruppe: https://t.me/CoronaSoliDarmstadt- Weite Gruppen: https://pad.systemli.org/p/9M9GOR5J4Zjnd74dXInr-keepWas ist aber mit Leuten die keinen Zugriff auf solche Medien hat z.B. die ältere Generation?Ein Vorschlag wäre eine Art Hotline einzurichten die autonom arbeitet.",
         challenge:
           "Wie können wir Personen ohne Internetzugriff Informationen bereitstellen und Unterstützung anbieten?",
         approach:
@@ -49,9 +54,20 @@ export function IdeaList(): JSX.Element {
         <div className="bg-white rounded p-4 border border-gray-400 mb-4">
           <div className="mb-2">
             <div className="font-bold text-lg mb-2">{title}</div>
-            <div className="">{issue}</div>
-            <div>{challenge}</div>
-            <div>{approach}</div>
+            <div className="font-light uppercase text-gray-700 text-xs tracking-wider mb-1">
+              Problem
+            </div>
+            <div className="mb-3">{issue}</div>
+            <div className="font-light uppercase text-gray-700 text-xs tracking-wider mb-1">
+              Herausforderung
+            </div>
+            <div className="mb-3">{challenge}</div>
+            {approach && (
+              <div className="font-light uppercase text-gray-700 text-xs tracking-widest mb-1">
+                Lösungansatz
+              </div>
+            )}
+            <div className="mb-3">{approach}</div>
           </div>
           <div>
             {labels!.map(label => (
@@ -65,8 +81,24 @@ export function IdeaList(): JSX.Element {
     )
   );
 
+  const categories = [
+    "Supermarkt Status",
+    "Krankenhäuser",
+    "Social Distancing",
+    "Lebensmittel-Matching",
+    "Analoge Unterstützung",
+    "Mental Health",
+    "Hilfsmittelverteilung",
+    "Kreativer Gesundheitsschutze",
+  ];
+
   const sidebar = (
-    <div className="rounded h-48 bg-white rounded border border-gray-400"></div>
+    <div className="flex flex-col rounded bg-white rounded border border-gray-400 p-1">
+      <div className="font-bold text-lg p-2">Kategorien</div>
+      {categories.map(category => (
+        <div className="px-2 py-1">{category}</div>
+      ))}
+    </div>
   );
 
   return (
