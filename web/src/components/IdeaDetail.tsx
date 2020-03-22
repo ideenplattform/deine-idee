@@ -16,10 +16,11 @@ const IDEAS = gql`
   }
 `;
 
-export function IdeaDetail(): JSX.Element {
+export function IdeaDetail(props): JSX.Element {
   // const { loading, error, data } = useQuery(IDEAS);
   // if (loading) return <p>Loading...</p>;
   // if (error) return <p>Error :(</p>;
+  const id = props.match.params.number;
 
   const data = {
     idea: {

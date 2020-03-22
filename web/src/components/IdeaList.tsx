@@ -1,9 +1,12 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import gql from "graphql-tag";
-import { useQuery } from "@apollo/react-hooks";
-
 import wirvsvirus from "../images/wirvsvirus3.png";
 import wirvsvirusLogo from "../images/wirvsvirus-logo.png";
+import { useQuery } from "@apollo/react-hooks";
+
+import { Link } from "react-router-dom";
+
+import ReactMarkdown from "react-markdown";
 
 const IDEAS = gql`
   {
@@ -21,6 +24,7 @@ export function IdeaList(): JSX.Element {
   const data = {
     ideas: [
       {
+        id: 1,
         title: "Auslastungsmanagement",
         issue: "Unvermeindliche Menschenansammlungen in Supermärkten.",
         challenge:
@@ -33,13 +37,14 @@ export function IdeaList(): JSX.Element {
         ],
       },
       {
+        id: 2,
         title: "Unterstützung von Personen die kein Internetzugriff haben",
         issue:
-          "Es gibt bereits zahlreiche Webseiten, Chatgruppen(Whatsapp/Telegram) und App's, welche die Kommunikation zwischen Hilfesuchenden und Leuten die Hilfe anbieten erleichtert.Z.B.:- Webseite: http://www.quarantaenehelden.org/- Telegram Gruppe: https://t.me/CoronaSoliDarmstadt- Weite Gruppen: https://pad.systemli.org/p/9M9GOR5J4Zjnd74dXInr-keepWas ist aber mit Leuten die keinen Zugriff auf solche Medien hat z.B. die ältere Generation?Ein Vorschlag wäre eine Art Hotline einzurichten die autonom arbeitet.",
+          "Es gibt bereits zahlreiche Webseiten, Chatgruppen(Whatsapp/Telegram) und App's, welche die Kommunikation zwischen Hilfesuchenden und Leuten die Hilfe anbieten erleichtert.\n\nz.B.:\n* Webseite: [quarantaenehelden.org](http://www.quarantaenehelden.org/)\n* Telegram Gruppe: https://t.me/CoronaSoliDarmstadt\n* Weite Gruppen: https://pad.systemli.org/p/9M9GOR5J4Zjnd74dXInr-keep\nWas ist aber mit Leuten die keinen Zugriff auf solche Medien hat z.B. die ältere Generation? Ein Vorschlag wäre eine Art Hotline einzurichten die autonom arbeitet.",
         challenge:
           "Wie können wir Personen ohne Internetzugriff Informationen bereitstellen und Unterstützung anbieten?",
         approach:
-          "Die Lösungen sind bisher rein Internet gebunden.Es gibt bereits zahlreiche Webseiten, Chatgruppen(Whatsapp/Telegram) und App's, welche die Kommunikation zwischen Hilfesuchenden und Leuten die Hilfe anbieten erleichtert.Z.B.:- Webseite: http://www.quarantaenehelden.org/- Telegram Gruppe: https://t.me/CoronaSoliDarmstadt- Weite Gruppen: https://pad.systemli.org/p/9M9GOR5J4Zjnd74dXInr-keep",
+          "Die Lösungen sind bisher rein Internet gebunden. Es gibt bereits zahlreiche Webseiten, Chatgruppen(Whatsapp/Telegram) und App's, welche die Kommunikation zwischen Hilfesuchenden und Leuten die Hilfe anbieten erleichtert.\n\n z.B.:\n* Webseite: http://www.quarantaenehelden.org/\n* Telegram Gruppe: https://t.me/CoronaSoliDarmstadt\n* Weite Gruppen: https://pad.systemli.org/p/9M9GOR5J4Zjnd74dXInr-keep",
         labels: [
           {
             title: "Kommunikation & Informationsvermittlung",
@@ -51,31 +56,50 @@ export function IdeaList(): JSX.Element {
     ],
   };
 
+  const renderers = {
+    list: (item: any): ReactElement => (
+      <ul className="list-disc pl-4">{item.children}</ul>
+    ),
+    link: (item: any): ReactElement => (
+      <a className="text-blue-400" href={item.href}>
+        {item.children}
+      </a>
+    ),
+  };
+
   const ideas = data.ideas.map(
-    ({ title, issue, challenge, approach, labels }) => (
+    ({ id, title, issue, challenge, approach, labels }) => (
       <div>
         <div className="bg-white rounded p-4 border border-gray-400 mb-4">
           <div className="mb-2">
-            <div className="font-bold text-lg mb-2">{title}</div>
+            <div className="font-bold text-lg mb-2">
+              <Link to={{ pathname: `/idea/${id}` }}>{title}</Link>
+            </div>
             <div className="font-light uppercase text-gray-700 text-xs tracking-wider mb-1">
               Problem
             </div>
-            <div className="mb-3">{issue}</div>
+            <div className="mb-3">
+              <ReactMarkdown source={issue} renderers={renderers} />
+            </div>
             <div className="font-light uppercase text-gray-700 text-xs tracking-wider mb-1">
               Herausforderung
             </div>
-            <div className="mb-3">{challenge}</div>
+            <div className="mb-3">
+              <ReactMarkdown source={challenge} renderers={renderers} />
+            </div>
             {approach && (
               <div className="font-light uppercase text-gray-700 text-xs tracking-widest mb-1">
                 Lösungansatz
               </div>
             )}
-            <div className="mb-3">{approach}</div>
+            <div className="mb-3">
+              <ReactMarkdown source={approach} renderers={renderers} />
+            </div>
           </div>
           <div>
             {labels!.map(label => (
               <span
-                className={`bg-${label.color} text-sm rounded-full px-3 py-1 m-1`}
+                className={`border-2 border-${label.color} hover:bg-${label.color} text-sm rounded-full px-3 py-1 m-1`}
               >
                 {label.title}
               </span>
