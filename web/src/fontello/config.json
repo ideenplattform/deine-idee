@@ -1,0 +1,202 @@
+{
+  "name": "",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "w3nzesrlbezu6f30q7ytyq919p6gdlb6",
+      "css": "home",
+      "code": 59392,
+      "src": "typicons"
+    },
+    {
+      "uid": "af95ef0ddda80a78828c62d386506433",
+      "css": "topics",
+      "code": 61875,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "f978da58836f23373882916f05fb70b4",
+      "css": "feed",
+      "code": 59393,
+      "src": "linecons"
+    },
+    {
+      "uid": "b9ca73befd583b2197a56a68045c9c0c",
+      "css": "note",
+      "code": 62026,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "9dd9e835aebe1060ba7190ad2b2ed951",
+      "css": "search",
+      "code": 59394,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "fbede3c5584282a0e9b131926dff71da",
+      "css": "topic",
+      "code": 61874,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "3e674995cacc2b09692c096ea7eb6165",
+      "css": "announcement",
+      "code": 59395,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "6cc796276697d8a75ae21bb2df4badc9",
+      "css": "science",
+      "code": 59396,
+      "src": "linecons"
+    },
+    {
+      "uid": "ef74ff62feda486fd414410e782b598a",
+      "css": "learn",
+      "code": 59397,
+      "src": "entypo"
+    },
+    {
+      "uid": "8c0ffa714cecbf5144e022d9c3df4a1f",
+      "css": "politics",
+      "code": 61852,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "a3d734a5b4bec33fc3aa459d82092b23",
+      "css": "help",
+      "code": 59398,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "671f29fa10dda08074a4c6a341bb4f39",
+      "css": "bell",
+      "code": 61683,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "21f6a88daf13c62e5a70f5ef6ad9e23f",
+      "css": "message",
+      "code": 59399,
+      "src": "websymbols"
+    },
+    {
+      "uid": "e36d581e4f2844db345bddc205d15dda",
+      "css": "group",
+      "code": 59400,
+      "src": "elusive"
+    },
+    {
+      "uid": "05ef9b5e8742971aa85b23cfcbe71594",
+      "css": "contact",
+      "code": 61540,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "bbd66ef66bb8fa9edde54d9a90b89150",
+      "css": "user",
+      "code": 59401,
+      "src": "entypo"
+    },
+    {
+      "uid": "acf41aa4018e58d49525665469e35665",
+      "css": "thumbs-up",
+      "code": 59402,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "7533e68038fc6d520ede7a7ffa0a2f64",
+      "css": "thumbs-down",
+      "code": 59403,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "98edd99a41fbdc5633151cd21b7e56f8",
+      "css": "up",
+      "code": 59404,
+      "src": "iconic"
+    },
+    {
+      "uid": "41d90aea465750c2a5dc6cb0bdef9617",
+      "css": "down",
+      "code": 59405,
+      "src": "iconic"
+    },
+    {
+      "uid": "frauy9fser6zk9n5ih3rdpz7zzfjbrvu",
+      "css": "eye",
+      "code": 59406,
+      "src": "modernpics"
+    },
+    {
+      "uid": "c709da589c923ba3c2ad48d9fc563e93",
+      "css": "voting-no",
+      "code": 59407,
+      "src": "entypo"
+    },
+    {
+      "uid": "b90d80c250a9bbdd6cd3fe00e6351710",
+      "css": "voting-yes",
+      "code": 59408,
+      "src": "iconic"
+    },
+    {
+      "uid": "6274e0601f2feef7eced89146e708de0",
+      "css": "user-add",
+      "code": 59409,
+      "src": "entypo"
+    },
+    {
+      "uid": "c64623255a4a7c72436b199b05296c4f",
+      "css": "smiley-happy",
+      "code": 59410,
+      "src": "fontelico"
+    },
+    {
+      "uid": "d10920db2e79c997c5e783279291970c",
+      "css": "3-dots",
+      "code": 59411,
+      "src": "entypo"
+    },
+    {
+      "uid": "381da2c2f7fd51f8de877c044d7f439d",
+      "css": "picture",
+      "code": 59412,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "94103e1b3f1e8cf514178ec5912b4469",
+      "css": "arrow-down",
+      "code": 61661,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "23710230c21b4af140947e3604cc67a5",
+      "css": "comment",
+      "code": 59413,
+      "src": "elusive"
+    },
+    {
+      "uid": "d5937c5767642d0336ad599af0e9c992",
+      "css": "share",
+      "code": 59414,
+      "src": "elusive"
+    },
+    {
+      "uid": "63e2a597d744c3093e09fdd6108ee44f",
+      "css": "repost",
+      "code": 59415,
+      "src": "websymbols"
+    },
+    {
+      "uid": "4i0s2bklai5fywieqm4dqqngfz9ptfab",
+      "css": "page",
+      "code": 59416,
+      "src": "typicons"
+    }
+  ]
+}

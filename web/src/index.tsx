@@ -10,6 +10,8 @@ import { Nav } from "./components/Nav";
 import { IdeaDetail } from "./components/IdeaDetail";
 import { IdeaList } from "~/components/IdeaList";
 
+import './fontello/css/fontello.css';
+
 const cache = new InMemoryCache();
 const link = new HttpLink({
   uri: "http://localhost:3000/graphql",
