@@ -45,6 +45,7 @@ export function Dashboard(): JSX.Element {
             color: "blue-300",
           },
         ],
+        community: "deineidee",
       },
       {
         id: 2,
@@ -62,9 +63,10 @@ export function Dashboard(): JSX.Element {
           },
           { title: "Solidarität und Zusammenhalt", color: "orange-300" },
         ],
+        community: "wirvsvirus",
       },
     ],
-    cards: [
+    communities: [
       {
         id: "wirvsvirus",
         title: "#WirVsVirus",
@@ -91,18 +93,19 @@ export function Dashboard(): JSX.Element {
     ),
   };
 
+
   const ideas = data.ideas.map(
-    ({ id, title, issue, challenge, approach, labels }) => (
+    ({ id, title, issue, challenge, approach, labels,community }) => (
       <div>
         <div className="bg-white rounded p-4 border border-gray-400 mb-4">
           <div className="mb-2">
             <Link
-              to="/page/wirvsvirus"
+              to={{pathname:`/page/${community}`}}
               className="flex justify-between items-center"
             >
               <div className="py-2 flex items-center">
-                <img className="h-8 rounded-full" src={wirvsvirusLogo} />
-                <div className="font-bold px-2">#WirVsVirus</div>
+                <img className="h-8 rounded-full" src={data.communities.filter((c)=>c.id==community)[0].image} />
+                <div className="font-bold px-2">{data.communities.filter((c)=>c.id==community)[0].title}</div>
                 <div className="px-3 text-gray-400 text-xs">
                   vor einer Stunde
                 </div>
@@ -182,10 +185,10 @@ export function Dashboard(): JSX.Element {
   );
 
   const cards = [
-    data.cards[0],
-    data.cards[1],
-    data.cards[0],
-    data.cards[1],
+    data.communities[0],
+    data.communities[1],
+    data.communities[0],
+    data.communities[1],
   ].map(({ image, title, text, id }) => (
     <Link to={{ pathname: `/page/${id}` }} className="w-1/4 mx-6">
       <div
