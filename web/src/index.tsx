@@ -6,6 +6,7 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
 import { ApolloProvider } from "@apollo/react-hooks";
 
+import { Nav } from "./components/Nav";
 import { IdeaList } from "./components/IdeaList";
 
 const cache = new InMemoryCache();
@@ -20,8 +21,11 @@ const client = new ApolloClient({
 
 const App = (): JSX.Element => (
   <ApolloProvider client={client}>
-    <div>
-      <IdeaList />
+    <div className="flex flex-col h-screen w-full bg-gray-300">
+      <Nav />
+      <main className="relative h-full mx-4 my-5">
+        <IdeaList />
+      </main>
     </div>
   </ApolloProvider>
 );
