@@ -10,9 +10,12 @@ module.exports = {
         "24px": "24px",
         "48px": "48px",
         "200px": "200px",
-      }
+      },
+      fontSize: {
+        bigger: "1.05rem",
+      },
     },
   },
   variants: {},
   plugins: [],
-}
+};

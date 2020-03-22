@@ -39,7 +39,10 @@
     "tailwindcss": "^1.2.0",
     "ts-mocha": "^6.0.0",
     "tsconfig-paths": "^3.9.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "commonmark": "^0.29.1",
+    "rc-slider": "^9.2.3",
+    "react-markdown": "^4.3.1"
   },
   "prettier": {
     "trailingComma": "es5"
