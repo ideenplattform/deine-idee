@@ -133,53 +133,53 @@ export function Dashboard(): JSX.Element {
   ));
 
   const sidebar = (
-    <div className="flex flex-col rounded bg-white rounded border border-gray-400 p-3">
-      <div className="font-bold mb-2">Beliebte Kategorien</div>
-      <div className="mb-5">
-        <div className="flex flex-col p-2">{categoriesElements}</div>
-      </div>
-      <div className="flex">
-        <div className="flex flex-col w-1/3">
-          <div className="font-medium text-lg">800</div>
-          <div className="font-bold">Ideen</div>
+    <div>
+      <div className="flex flex-col rounded bg-white rounded border border-gray-400 p-3 mb-5">
+        <div className="flex flex-wrap">
+          <div className="flex flex-col w-1/2 py-1">
+            <div className="font-medium text-lg">800</div>
+            <div className="font-bold">Ideen</div>
+          </div>
+          <div className="flex flex-col w-1/2 py-1">
+            <div className="font-medium text-lg">42t</div>
+            <div className="font-bold">Teilnehmer</div>
+          </div>
+          <div className="flex flex-col w-1/2 py-1">
+            <div className="font-medium text-lg">42</div>
+            <div className="font-bold">Hackathons</div>
+          </div>
+          <div className="flex flex-col w-1/2 py-1">
+            <div className="font-medium text-lg">12</div>
+            <div className="font-bold">fertige Projekte</div>
+          </div>
         </div>
-        <div className="flex flex-col">
-          <div className="font-medium text-lg">42t</div>
-          <div className="font-bold">Teilnehmer</div>
+      </div>
+      <div className="flex flex-col rounded bg-white rounded border border-gray-400 p-3">
+        <div className="font-bold mb-2">Beliebte Kategorien</div>
+        <div className="mb-5">
+          <div className="flex flex-col p-2">{categoriesElements}</div>
         </div>
       </div>
     </div>
   );
 
+  const cards = [1, 2, 3, 4].map(() => (
+    <Link to="/wirvsvirus" className="w-1/4 mx-6">
+      <div className="rounded-lg p-5 card text-white h-32 flex flex-col justify-end">
+        <div>#WirVsVirus</div>
+        <div className="text-xs font-light">Hackathon gegen Coronavirus</div>
+      </div>
+    </Link>
+  ));
+
   return (
     <div>
       <div className="flex justify-center">
         <div className="flex flex-col w-976px">
-          <div className="font-bold text-gray-800 px-4 pt-2 pb-1">
-            Deine Ideen des Tages
-            <div className="flex justify-between my-4">
-              <Link to="/wirvsvirus" className="w-1/4 mx-6">
-                <div className="rounded-lg p-5 card text-white h-32 flex flex-col justify-end">
-                  #WirVsVirus
-                </div>
-              </Link>
-              <Link to="/wirvsvirus" className="w-1/4 mx-6">
-                <div className="rounded-lg p-5 card text-white h-32 flex flex-col justify-end">
-                  #WirVsVirus
-                </div>
-              </Link>
-              <Link to="/wirvsvirus" className="w-1/4 mx-6">
-                <div className="rounded-lg p-5 card text-white h-32 flex flex-col justify-end">
-                  #WirVsVirus
-                </div>
-              </Link>
-              <Link to="/wirvsvirus" className="w-1/4 mx-6">
-                <div className="rounded-lg p-5 card text-white h-32 flex flex-col justify-end">
-                  #WirVsVirus
-                </div>
-              </Link>
-            </div>
-            Beliebte Ideen
+          <div className="text-gray-800 px-4 pt-2 pb-1">
+            <div className="font-bold">Deine Ideen des Tages</div>
+            <div className="flex justify-between my-4">{cards}</div>
+            <div className="font-bold">Beliebte Ideen</div>
             <div className="h-full flex justify-center mx-4 my-3">
               <div className="w-640px">{ideas}</div>
               <div className="w-312px ml-24px">{sidebar}</div>
