@@ -9,6 +9,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Nav } from "./components/Nav";
 import { IdeaDetail } from "./components/IdeaDetail";
 import { IdeaList } from "~/components/IdeaList";
+import { Dashboard } from "~/components/Dashboard";
 
 import './fontello/css/fontello.css';
 
@@ -28,8 +29,9 @@ const App = (): JSX.Element => (
       <Nav />
       <main className="relative h-full">
         <Switch>
-          <Route exact path="/" component={IdeaList} />
+          <Route exact path="/" component={Dashboard} />
           <Route path="/idea/:id" component={IdeaDetail} />
+          <Route path="/wirvsvirus" component={IdeaList} />
         </Switch>
       </main>
     </div>

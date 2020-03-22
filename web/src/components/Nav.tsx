@@ -1,5 +1,6 @@
 import React from "react";
 import icon from "../icons/idea.svg";
+import { Link } from "react-router-dom";
 
 export function Nav(): JSX.Element {
   return (
@@ -8,7 +9,7 @@ export function Nav(): JSX.Element {
         <span className="m-auto pb-1 mr-2">
           <img className="h-6" src={icon} />
         </span>
-        <span className="text-lg m-auto">DeineIdee</span>
+        <span className="text-lg m-auto"><Link to="/">DeineIdee</Link></span>
       </div>
       <div className="my-auto w-5/12">
         <div className="flex border border-gray-sm bg-surface-medium rounded py-px w-full">
