@@ -88,9 +88,21 @@ export function IdeaList(): JSX.Element {
 
   const sidebar = (
     <div className="flex flex-col rounded bg-white rounded border border-gray-400 p-3">
-      <div className="font-bold text-lg">Zusammenfassung</div>
-      <div>Ideen 800</div>
-      <div>Teilnehmer 40t</div>
+      <div className="font-bold mb-2">#WirVsVirus</div>
+      <div className="mb-5">
+        Wie können wir als Gesellschaft die Herausforderungen, die im Zuge der
+        Corona Krise entstehen, mit neuen Lösungen gemeinsam meistern?
+      </div>
+      <div className="flex">
+        <div className="flex flex-col w-1/3">
+          <div className="font-medium text-lg">800</div>
+          <div className="font-bold">Ideen</div>
+        </div>
+        <div className="flex flex-col">
+          <div className="font-medium text-lg">42t</div>
+          <div className="font-bold">Teilnehmer</div>
+        </div>
+      </div>
     </div>
   );
 
@@ -104,7 +116,7 @@ export function IdeaList(): JSX.Element {
           <div className="flex mb-3">
             <img className="h-20 rounded-full -mt-4" src={wirvsvirusLogo} />
             <div>
-              <div className="font-bold text-2xl p-2">WirVsVirus</div>
+              <div className="font-bold text-2xl p-2">#WirVsVirus</div>
             </div>
           </div>
           <div className="flex">
