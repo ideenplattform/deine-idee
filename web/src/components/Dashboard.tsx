@@ -45,7 +45,7 @@ export function Dashboard(): JSX.Element {
             color: "blue-300",
           },
         ],
-        community: "deineidee",
+        community: "wirvsvirus",
       },
       {
         id: 2,
@@ -93,19 +93,23 @@ export function Dashboard(): JSX.Element {
     ),
   };
 
-
   const ideas = data.ideas.map(
-    ({ id, title, issue, challenge, approach, labels,community }) => (
+    ({ id, title, issue, challenge, approach, labels, community }) => (
       <div>
         <div className="bg-white rounded p-4 border border-gray-400 mb-4">
           <div className="mb-2">
             <Link
-              to={{pathname:`/page/${community}`}}
+              to={{ pathname: `/page/${community}` }}
               className="flex justify-between items-center"
             >
               <div className="py-2 flex items-center">
-                <img className="h-8 rounded-full" src={data.communities.filter((c)=>c.id==community)[0].image} />
-                <div className="font-bold px-2">{data.communities.filter((c)=>c.id==community)[0].title}</div>
+                <img
+                  className="h-8 rounded-full"
+                  src={data.communities.filter(c => c.id == community)[0].image}
+                />
+                <div className="font-bold px-2">
+                  {data.communities.filter(c => c.id == community)[0].title}
+                </div>
                 <div className="px-3 text-gray-400 text-xs">
                   vor einer Stunde
                 </div>
