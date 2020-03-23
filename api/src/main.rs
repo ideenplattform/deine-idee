@@ -3,5 +3,5 @@ extern crate tokio;
 
 #[tokio::main]
 async fn main() {
-    server::run().await;
+    api::run().await;
 }
