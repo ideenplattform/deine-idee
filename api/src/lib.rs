@@ -1,5 +1,5 @@
 use juniper::{EmptyMutation, EmptySubscription, FieldResult};
-use warp::Filter;
+use warp::{http::Method, Filter};
 
 #[derive(juniper::GraphQLObject)]
 struct Idea {
@@ -21,11 +21,9 @@ impl Query {
     }
 
     fn ideas(context: &Context) -> FieldResult<Vec<Idea>> {
-        Ok(vec![
-            Idea {
-                title: "Ideenplattform".to_owned(),
-            }
-        ])
+        Ok(vec![Idea {
+            title: "Ideenplattform".to_owned(),
+        }])
     }
 }
 
@@ -47,12 +45,15 @@ pub async fn run() {
     let log = warp::log("warp_server");
     log::info!("Listening on 127.0.0.1:3000");
 
+    let cors = warp::cors()
+        .allow_any_origin()
+        .allow_methods(&[Method::GET, Method::POST])
+        .allow_headers(vec!["content-type"]);
+
     warp::serve(
-        warp::get()
-            .and(warp::path("graphiql"))
-            .and(juniper_warp::graphiql_filter("/graphql"))
-            .or(warp::path("graphql").and(graphql_filter))
-            .or(warp::fs::dir("dist"))
+        warp::any()
+            .and(warp::path("graphql").and(graphql_filter))
+            .with(cors)
             .with(log),
     )
     .run(([127, 0, 0, 1], 3000))
