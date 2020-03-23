@@ -22,7 +22,7 @@ cargo install cargo-watch
 npm run dev
 ```
 
-Visit `http://localhost:3000`
+Visit `http://localhost:1234`
 
 
 ## Attribution
