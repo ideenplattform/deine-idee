@@ -1,7 +1,8 @@
-#![macro_use]
-extern crate tokio;
+use anyhow::Result;
 
 #[tokio::main]
-async fn main() {
-    api::run().await;
+async fn main() -> Result<()> {
+    api::run().await?;
+
+    Ok(())
 }

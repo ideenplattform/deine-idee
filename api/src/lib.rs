@@ -1,45 +1,25 @@
-use juniper::{EmptyMutation, EmptySubscription, FieldResult};
+#[macro_use]
+extern crate diesel;
+
+#[macro_use]
+extern crate diesel_migrations;
+
+use anyhow::Result;
 use warp::{http::Method, Filter};
 
-#[derive(juniper::GraphQLObject)]
-struct Idea {
-    title: String,
-}
+mod db;
+mod graphql;
+mod models;
+mod schema;
 
-struct Context {}
-
-impl juniper::Context for Context {}
-
-struct Query;
-
-#[juniper::graphql_object(Context = Context)]
-impl Query {
-    fn idea(context: &Context, id: String) -> FieldResult<Idea> {
-        Ok(Idea {
-            title: "Ideenplattform".to_owned(),
-        })
-    }
-
-    fn ideas(context: &Context) -> FieldResult<Vec<Idea>> {
-        Ok(vec![Idea {
-            title: "Ideenplattform".to_owned(),
-        }])
-    }
-}
-
-type Schema = juniper::RootNode<'static, Query, EmptyMutation<Context>, EmptySubscription<Context>>;
-
-pub async fn run() {
+pub async fn run() -> Result<()> {
     ::std::env::set_var("RUST_LOG", "warp_server");
     env_logger::init();
 
-    let schema = Schema::new(
-        Query,
-        EmptyMutation::<Context>::new(),
-        EmptySubscription::<Context>::new(),
-    );
+    let pool = db::setup()?;
+    let schema = graphql::schema();
 
-    let state = warp::any().map(move || Context {});
+    let state = warp::any().map(move || graphql::context(pool.clone()));
     let graphql_filter = juniper_warp::make_graphql_filter(schema, state.boxed());
 
     let log = warp::log("warp_server");
@@ -52,10 +32,14 @@ pub async fn run() {
 
     warp::serve(
         warp::any()
-            .and(warp::path("graphql").and(graphql_filter))
+            .and(warp::path("graphiql"))
+            .and(juniper_warp::graphiql_filter("/graphql"))
+            .or(warp::path("graphql").and(graphql_filter))
             .with(cors)
             .with(log),
     )
     .run(([127, 0, 0, 1], 3000))
-    .await
+    .await;
+
+    Ok(())
 }

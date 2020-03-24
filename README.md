@@ -14,6 +14,7 @@ Dokumentation zum Projekt findet sich [im docs Verzeichnis](https://github.com/i
 ```
 npm install
 cargo install cargo-watch
+cargo install diesel_cli --no-default-features --features sqlite
 ```
 
 ### Watcher
@@ -23,7 +24,6 @@ npm run dev
 ```
 
 Visit `http://localhost:1234`
-
 
 ## Attribution
 
