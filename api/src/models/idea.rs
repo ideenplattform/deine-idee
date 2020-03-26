@@ -4,7 +4,7 @@ use diesel::prelude::*;
 use crate::db::Connection;
 use crate::schema::ideas;
 
-#[derive(Queryable, juniper::GraphQLObject)]
+#[derive(Queryable, juniper::GraphQLObject, Clone)]
 pub struct Idea {
     pub id: i32,
     pub title: String,

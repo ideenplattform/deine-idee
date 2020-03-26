@@ -23,13 +23,16 @@ dependencies = [
  "diesel",
  "diesel_migrations",
  "env_logger",
- "futures 0.3.4",
+ "futures 0.3.1",
  "juniper",
+ "juniper_subscriptions",
  "juniper_warp",
  "log 0.4.8",
  "r2d2",
  "r2d2_sqlite",
  "rusqlite",
+ "serde",
+ "serde_json",
  "tokio",
  "warp",
 ]
@@ -333,9 +336,9 @@ checksum = "1b980f2816d6ee8673b6517b52cb0e808a180efc92e5c19d02cdda79066703ef"
 
 [[package]]
 name = "futures"
-version = "0.3.4"
+version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5c329ae8753502fb44ae4fc2b622fa2a94652c41e795143765ba0927f92ab780"
+checksum = "b6f16056ecbb57525ff698bb955162d0cd03bee84e6241c27ff75c08d8ca5987"
 dependencies = [
  "futures-channel",
  "futures-core",
@@ -610,12 +613,12 @@ checksum = "b8b7a7c0c47db5545ed3fef7468ee7bb5b74691498139e4b3f6a20685dc6dd8e"
 [[package]]
 name = "juniper"
 version = "0.14.2"
-source = "git+https://github.com/graphql-rust/juniper#5f777e8a6dc1c5b947b5fae578e9307ab2e24558"
+source = "git+https://github.com/graphql-rust/juniper#6e4bc127b05dc29f7832cbf468c9fb2bc18f78ec"
 dependencies = [
  "bson",
  "chrono",
  "fnv",
- "futures 0.3.4",
+ "futures 0.3.1",
  "indexmap",
  "juniper_codegen",
  "serde",
@@ -627,9 +630,9 @@ dependencies = [
 [[package]]
 name = "juniper_codegen"
 version = "0.14.2"
-source = "git+https://github.com/graphql-rust/juniper#5f777e8a6dc1c5b947b5fae578e9307ab2e24558"
+source = "git+https://github.com/graphql-rust/juniper#6e4bc127b05dc29f7832cbf468c9fb2bc18f78ec"
 dependencies = [
- "futures 0.3.4",
+ "futures 0.3.1",
  "proc-macro-error",
  "proc-macro2",
  "quote",
@@ -637,13 +640,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "juniper_subscriptions"
+version = "0.14.2"
+source = "git+https://github.com/graphql-rust/juniper#6e4bc127b05dc29f7832cbf468c9fb2bc18f78ec"
+dependencies = [
+ "futures 0.3.1",
+ "juniper",
+]
+
+[[package]]
 name = "juniper_warp"
 version = "0.5.2"
-source = "git+https://github.com/graphql-rust/juniper#5f777e8a6dc1c5b947b5fae578e9307ab2e24558"
+source = "git+https://github.com/graphql-rust/juniper#6e4bc127b05dc29f7832cbf468c9fb2bc18f78ec"
 dependencies = [
  "failure",
- "futures 0.3.4",
+ "futures 0.3.1",
  "juniper",
+ "juniper_subscriptions",
  "serde",
  "serde_derive",
  "serde_json",
@@ -1344,6 +1357,9 @@ name = "serde"
 version = "1.0.105"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e707fbbf255b8fc8c3b99abb91e7257a622caeb20a9818cbadbeeede4e0932ff"
+dependencies = [
+ "serde_derive",
+]
 
 [[package]]
 name = "serde_derive"
@@ -1511,7 +1527,7 @@ version = "0.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b8b8fe88007ebc363512449868d7da4389c9400072a3f666f212c7280082882a"
 dependencies = [
- "futures 0.3.4",
+ "futures 0.3.1",
  "log 0.4.8",
  "pin-project",
  "tokio",
@@ -1684,7 +1700,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "54cd1e2b3eb3539284d88b76a9afcf5e20f2ef2fab74db5b21a1c30d7d945e82"
 dependencies = [
  "bytes",
- "futures 0.3.4",
+ "futures 0.3.1",
  "headers",
  "http",
  "hyper",
